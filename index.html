@@ -4,10 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="./favicon.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/themes/odometer-theme-minimal.min.css"
+      integrity="sha512-Jeqp8CoPCvf9tf/uWokfCTsFcv5BIhfTYaTTJA0NKn6B88zDSWe5d/9HTmZX63FGpGGQdB8Chg2khB96+wn4Tw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="loading-indicator.css" />
-    <title>Document</title>
+    <title>XAML.io</title>
   </head>
   <body>
+    <div class="loading-indicator">
+      <div class="loader-container">
+        <div class="loader">
+          <img
+            class="loading-logo"
+            src="./white.png"
+            alt="Xaml.io logo"
+            srcset=""
+          />
+          <div class="loader-progress">
+            <div class="loader-progress-bar"></div>
+          </div>
+        </div>
+        <div class="counter-container">
+          <span class="odometer" id="odometer">000</span> <span>%</span>
+        </div>
+      </div>
+    </div>
     <div class="website-content">
       <div class="header">
         <div class="h1">
@@ -16,20 +41,13 @@
         </div>
       </div>
     </div>
-    <div class="loading-indicator">
-      <div class="loader-progress">
-        <div class="loader-1 bar"></div>
-        <div class="loader-2 bar"></div>
-        <div class="aml">AML<span>.io</span></div>
-      </div>
-      <div class="circles">
-        <div class="circle circle-inner"></div>
-        <div class="circle circle-outer"></div>
-        <div class="circle-inner-rotator"></div>
-      </div>
-      <div class="counter">0%</div>
-    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/odometer.min.js"
+      integrity="sha512-v3fZyWIk7kh9yGNQZf1SnSjIxjAKsYbg6UQ+B+QxAZqJQLrN3jMjrdNwcxV6tis6S0s1xyVDZrDz9UoRLfRpWw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="xaml.js"></script>
   </body>
 </html>
