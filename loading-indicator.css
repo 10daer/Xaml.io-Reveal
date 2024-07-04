@@ -103,6 +103,7 @@ body {
   background-color: #350d0d;
   color: #fff;
   opacity: 0;
+  clip-path: polygon(37.5% 20%, 62.5% 20%, 62.5% 80%, 37.5% 80%);
   align-items: center;
   justify-content: center;
 }
