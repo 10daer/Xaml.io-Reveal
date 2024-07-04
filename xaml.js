@@ -9,14 +9,15 @@ function startLoader() {
 
   function updateCount() {
     if (currentValue === 100) {
-      finishedLoading();
+      // finishedLoading();
       return;
     }
 
     currentValue += Math.floor(Math.random() * 10) + 1;
     if (currentValue > 100) currentValue = 100;
 
-    count.textContent = currentValue;
+    // count.textContent = currentValue;
+    animateCounter(currentValue);
     loader.style.width = currentValue + "%";
 
     const delay = Math.floor(Math.random() * 200) + 250;
@@ -122,9 +123,36 @@ function finishedLoading() {
     },
   });
 }
+
+function animateCounter(value) {
+  const count = document.querySelector(".odometer");
+
+  gsap.to(count, {
+    y: -4,
+    opacity: 0.5,
+    duration: 0.075,
+    ease: "none",
+    onComplete: () => {
+      count.textContent = String(value).padStart(3, "0");
+      gsap.fromTo(
+        count,
+        {
+          y: 4,
+          opacity: 0.5,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.075,
+          ease: "none",
+        }
+      );
+    },
+  });
+}
+
 gsap.to(".loading-logo", {
-  width: "110px",
-  opacity: 1,
+  width: "100px",
   scale: 1,
   duration: 0.4,
   ease: "elastic",
@@ -140,6 +168,13 @@ gsap.to(".loader-progress", {
 
 gsap.to(".counter-container", {
   opacity: 1,
+  duration: 0.5,
+  ease: "none",
+  delay: 1.25,
+});
+
+gsap.to(".counter-container > .odometer", {
+  transform: "translateY(0)",
   duration: 0.5,
   ease: "none",
   delay: 1.25,
