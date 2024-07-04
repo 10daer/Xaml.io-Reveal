@@ -150,37 +150,41 @@ function animateCounter(value) {
   });
 }
 
-gsap.to(".loading-logo", {
-  width: "100px",
-  scale: 1,
-  duration: 0.4,
-  ease: "elastic",
-});
+document
+  .querySelector(".loading-logo")
+  .addEventListener("load", function (event) {
+    gsap.to(".loading-logo", {
+      width: "100px",
+      scale: 1,
+      duration: 0.4,
+      ease: "elastic",
+    });
 
-gsap.to(".loader-progress", {
-  width: "60vw",
-  opacity: 1,
-  duration: 2,
-  ease: "power1.out",
-  delay: 0.4,
-});
+    gsap.to(".loader-progress", {
+      width: "60vw",
+      opacity: 1,
+      duration: 2,
+      ease: "power1.out",
+      delay: 0.4,
+    });
 
-gsap.to(".counter-container", {
-  opacity: 1,
-  duration: 0.5,
-  ease: "none",
-  delay: 1.25,
-});
+    gsap.to(".counter-container", {
+      opacity: 1,
+      duration: 0.5,
+      ease: "none",
+      delay: 1.25,
+    });
 
-gsap.to(".counter-container > .odometer", {
-  transform: "translateY(0)",
-  duration: 0.5,
-  ease: "none",
-  delay: 1.25,
-});
+    gsap.to(".counter-container > .odometer", {
+      transform: "translateY(0)",
+      duration: 0.5,
+      ease: "none",
+      delay: 1.25,
+    });
 
-gsap.to(".loader", {
-  duration: 2.5,
-  delay: 0,
-  onComplete: () => startLoader(),
-});
+    gsap.to(".loader", {
+      duration: 2.5,
+      delay: 0,
+      onComplete: () => startLoader(),
+    });
+  });
