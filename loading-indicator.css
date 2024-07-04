@@ -54,7 +54,7 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 4px;
+  width: 0;
   max-width: 200px;
   height: 4px;
   opacity: 0.3;
@@ -69,7 +69,7 @@ body {
   height: 5px;
   border-radius: 12px;
   background-color: #fff;
-  transition: width 1s ease;
+  transition: width 0.75s ease;
 }
 
 .counter-container {
@@ -83,15 +83,13 @@ body {
   width: 100%;
   min-width: 26px;
   line-height: 1;
+  gap: 1px;
+
   opacity: 0;
   color: rgb(132, 129, 129);
 }
 
 .counter-container > .odometer {
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  gap: 2px;
   transform: translateY(4px);
 }
 

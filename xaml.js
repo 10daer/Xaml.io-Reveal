@@ -66,7 +66,7 @@ function finishedLoading() {
     scaleX: 4,
     delay: 4.25,
     borderRadius: "16px",
-    duration: 0.8,
+    duration: 2,
     ease: "power4.out",
   });
 
@@ -75,14 +75,14 @@ function finishedLoading() {
     scaleX: 4,
     delay: 4.25,
     borderRadius: "16px",
-    duration: 0.8,
+    duration: 2,
     ease: "power4.out",
   });
 
   gsap.to(".loading-logo", {
     width: "400px",
     delay: 4.25,
-    duration: 0.8,
+    duration: 2,
     ease: "power4.out",
   });
 
@@ -92,20 +92,20 @@ function finishedLoading() {
     x: -280,
     transformOrigin: "center center",
     delay: 4.25,
-    duration: 0.8,
+    duration: 2,
     ease: "power4.out",
   });
 
   gsap.to(".loading-indicator", {
     opacity: 0,
-    duration: 0.8,
+    duration: 2,
     delay: 4.25,
     ease: "power4.inOut",
   });
 
   gsap.to(".website-content", {
     opacity: 1,
-    delay: 4.25,
+    delay: 4.5,
     ease: "power1.inOut",
     onComplete: () => {
       document.querySelector(".loading-indicator").remove();
@@ -123,31 +123,63 @@ function finishedLoading() {
   });
 }
 
-function animateCounter(value) {
-  const count = document.querySelector(".odometer");
+function animateCounter(newValue) {
+  newValue = Math.min(newValue, 100);
 
-  gsap.to(count, {
-    y: -4,
-    opacity: 0.5,
-    duration: 0.075,
-    ease: "none",
-    onComplete: () => {
-      count.textContent = String(value).padStart(3, "0");
-      gsap.fromTo(
-        count,
-        {
-          y: 4,
-          opacity: 0.5,
+  const count = document.querySelectorAll(".odometer");
+  const currentValue = count[0].textContent.padStart(3, "0");
+  const newValueString = String(newValue).padStart(3, "0");
+
+  for (let i = 0; i < newValueString.length; i++) {
+    if (newValueString[i] !== currentValue[i]) {
+      gsap.to(count[i], {
+        y: -4,
+        opacity: 0.5,
+        duration: 0.075,
+        ease: "none",
+        onComplete: () => {
+          count[i].textContent = newValueString[i];
+          gsap.fromTo(
+            count[i],
+            { y: 4, opacity: 0.5 },
+            { y: 0, opacity: 1, duration: 0.075, ease: "none" }
+          );
         },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.075,
-          ease: "none",
-        }
-      );
-    },
-  });
+      });
+    }
+  }
+
+  if (newValue === 100 && currentValue !== "100") {
+    gsap.to(count[1], {
+      y: -4,
+      opacity: 0.5,
+      duration: 0.075,
+      ease: "none",
+      onComplete: () => {
+        count[1].textContent = "0";
+        gsap.fromTo(
+          count[1],
+          { y: 4, opacity: 0.5 },
+          { y: 0, opacity: 1, duration: 0.075, ease: "none" }
+        );
+      },
+    });
+
+    gsap.to(count[2], {
+      y: -4,
+      opacity: 0.5,
+      duration: 0.075,
+      ease: "none",
+      onComplete: () => {
+        count[2].textContent = "0";
+        gsap.fromTo(
+          count[2],
+          { y: 4, opacity: 0.5 },
+          { y: 0, opacity: 1, duration: 0.075, ease: "none" }
+        );
+      },
+    });
+  }
 }
 
 document
@@ -156,28 +188,28 @@ document
     gsap.to(".loading-logo", {
       width: "100px",
       scale: 1,
-      duration: 0.4,
-      ease: "elastic",
+      duration: 1.5,
+      ease: "elastic.out",
     });
 
     gsap.to(".loader-progress", {
       width: "60vw",
       opacity: 1,
-      duration: 2,
+      duration: 1.75,
       ease: "power1.out",
       delay: 0.4,
     });
 
     gsap.to(".counter-container", {
       opacity: 1,
-      duration: 0.5,
+      duration: 0.25,
       ease: "none",
       delay: 1.25,
     });
 
     gsap.to(".counter-container > .odometer", {
       transform: "translateY(0)",
-      duration: 0.5,
+      duration: 0.25,
       ease: "none",
       delay: 1.25,
     });
