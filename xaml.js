@@ -66,7 +66,7 @@ function finishedLoading() {
     scaleX: 4,
     delay: 4.25,
     borderRadius: "16px",
-    duration: 0.5,
+    duration: 0.8,
     ease: "power4.out",
   });
 
@@ -75,14 +75,14 @@ function finishedLoading() {
     scaleX: 4,
     delay: 4.25,
     borderRadius: "16px",
-    duration: 0.5,
+    duration: 0.8,
     ease: "power4.out",
   });
 
   gsap.to(".loading-logo", {
     width: "400px",
     delay: 4.25,
-    duration: 0.5,
+    duration: 0.8,
     ease: "power4.out",
   });
 
@@ -92,13 +92,13 @@ function finishedLoading() {
     x: -280,
     transformOrigin: "center center",
     delay: 4.25,
-    duration: 0.5,
+    duration: 0.8,
     ease: "power4.out",
   });
 
   gsap.to(".loading-indicator", {
     opacity: 0,
-    duration: 0.5,
+    duration: 0.8,
     delay: 4.25,
     ease: "power4.inOut",
   });
