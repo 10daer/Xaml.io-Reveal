@@ -30,7 +30,6 @@ function finishedLoading() {
   gsap.to(".counter-container", {
     color: "white",
     duration: 1,
-    delay: 0.5,
     onComplete: () => {
       gsap.to(".counter-container", {
         y: -10,
@@ -43,7 +42,7 @@ function finishedLoading() {
   gsap.to(".loading-logo", {
     opacity: 1,
     duration: 1.5,
-    delay: 1.25,
+    delay: 1,
     ease: "power1.out",
   });
 
@@ -103,22 +102,31 @@ function finishedLoading() {
     ease: "power4.inOut",
   });
 
-  gsap.to(".website-content", {
-    opacity: 1,
-    delay: 4.5,
-    ease: "power1.inOut",
-    onComplete: () => {
-      document.querySelector(".loading-indicator").remove();
+  gsap.fromTo(
+    ".website-content",
+    {
+      scale: 0.25,
+      opacity: 0,
     },
-  });
+    {
+      opacity: 1,
+      scale: 1,
+      delay: 4.5,
+      duration: 2,
+      ease: "elastic.out",
+      onComplete: () => {
+        document.querySelector(".loading-indicator").remove();
+      },
+    }
+  );
 
   gsap.to("h1", {
     y: -80,
-    delay: 4.125,
+    delay: 4.625,
     duration: 1,
     ease: "power4.inOut",
     stagger: {
-      amount: 0.15,
+      amount: 0.3,
     },
   });
 }
