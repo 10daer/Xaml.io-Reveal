@@ -9,7 +9,7 @@ body {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background: black;
+  background: #201f1f;
 }
 
 .loading-indicator {
@@ -21,7 +21,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #201f1f;
   pointer-events: none;
 }
 
@@ -103,7 +102,7 @@ body {
   background-color: #350d0d;
   color: #fff;
   opacity: 0;
-  clip-path: polygon(37.5% 20%, 62.5% 20%, 62.5% 80%, 37.5% 80%);
+  clip-path: polygon(37.5% 40%, 62.5% 40%, 62.5% 60%, 37.5% 60%);
   align-items: center;
   justify-content: center;
 }

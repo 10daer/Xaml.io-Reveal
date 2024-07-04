@@ -122,6 +122,14 @@ function finishedLoading() {
 
   gsap.to(".website-content", {
     opacity: 1,
+    delay: 4.5,
+    ease: "none",
+    onComplete: () => {
+      document.querySelector(".loading-indicator").remove();
+    },
+  });
+
+  gsap.to(".website-content", {
     clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
     delay: 4.5,
     duration: 2,
