@@ -127,7 +127,7 @@ gsap.to(".loader-progress", {
 gsap.to(".counter-container", {
   opacity: 1,
   duration: 0.5,
-  ease: "power1.out",
+  ease: "none",
   delay: 1.25,
 });
 
