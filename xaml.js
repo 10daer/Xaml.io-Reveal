@@ -54,66 +54,65 @@ function finishedLoading() {
     ease: "power1.out",
   });
 
-  gsap.to(".loader-progress", {
-    height: "40vw",
-    width: "400vw",
-    scaleZ: 10,
-    delay: 4,
-    borderRadius: "16px",
-    duration: 2,
-    ease: "power1.out",
-  });
+  // gsap.to(".loader-progress", {
+  //   height: "40vw",
+  //   width: "400vw",
+  //   scaleZ: 10,
+  //   delay: 4,
+  //   borderRadius: "16px",
+  //   duration: 2,
+  //   ease: "power1.out",
+  // });
 
-  gsap.to(".loading-logo", {
-    width: "400px",
-    delay: 4,
-    duration: 2,
-    ease: "power1.out",
-  });
+  // gsap.to(".loading-logo", {
+  //   width: "400px",
+  //   delay: 4,
+  //   duration: 2,
+  //   ease: "power1.out",
+  // });
 
-  gsap.to(".loading-indicator", {
-    rotation: -90,
-    scale: 4,
-    x: -280,
-    transformOrigin: "center center",
-    delay: 4,
-    duration: 2,
-    ease: "power1.out",
-  });
+  // gsap.to(".loading-indicator", {
+  //   rotation: -90,
+  //   scale: 4,
+  //   x: -280,
+  //   transformOrigin: "center center",
+  //   delay: 4,
+  //   duration: 2,
+  //   ease: "power1.out",
+  // });
 
-  gsap.to(".loading-indicator", {
-    opacity: 0,
-    duration: 0.5,
-    delay: 5,
-    ease: "power1.inOut",
-  });
+  // gsap.to(".loading-indicator", {
+  //   opacity: 0,
+  //   duration: 0.5,
+  //   delay: 5,
+  //   ease: "power1.inOut",
+  // });
 
-  gsap.to(".website-content", {
-    opacity: 1,
-    delay: 4.5,
-    duration: 0.5,
-    ease: "power1.inOut",
-    onComplete: () => {
-      document.querySelector(".loading-indicator").remove();
-    },
-  });
+  // gsap.to(".website-content", {
+  //   opacity: 1,
+  //   delay: 4.5,
+  //   duration: 0.5,
+  //   ease: "power1.inOut",
+  //   onComplete: () => {
+  //     document.querySelector(".loading-indicator").remove();
+  //   },
+  // });
 
-  gsap.to("h1", {
-    y: -80,
-    delay: 4.5,
-    duration: 1.5,
-    ease: "power4.inOut",
-    stagger: {
-      amount: 0.15,
-    },
-  });
+  // gsap.to("h1", {
+  //   y: -80,
+  //   delay: 4.5,
+  //   duration: 1.5,
+  //   ease: "power4.inOut",
+  //   stagger: {
+  //     amount: 0.15,
+  //   },
+  // });
 }
 gsap.to(".loading-logo", {
   width: "110px",
   opacity: 1,
   scale: 1,
   duration: 0.4,
-  // ease: "power1.out",
   ease: "elastic",
 });
 
@@ -125,8 +124,15 @@ gsap.to(".loader-progress", {
   delay: 0.4,
 });
 
+gsap.to(".counter-container", {
+  opacity: 1,
+  duration: 0.5,
+  ease: "power1.out",
+  delay: 1.25,
+});
+
 gsap.to(".loader", {
-  duration: 1.5,
+  duration: 2.5,
   delay: 0,
-  // onComplete: () => startLoader(),
+  onComplete: () => startLoader(),
 });
