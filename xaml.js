@@ -102,27 +102,9 @@ function finishedLoading() {
     ease: "power4.inOut",
   });
 
-  // gsap.fromTo(
-  //   ".website-content",
-  //   {
-  //     scale: 0.25,
-  //     opacity: 0,
-  //   },
-  //   {
-  //     opacity: 1,
-  //     scale: 1,
-  //     delay: 4.5,
-  //     duration: 2,
-  //     ease: "elastic.out",
-  //     onComplete: () => {
-  //       document.querySelector(".loading-indicator").remove();
-  //     },
-  //   }
-  // );
-
   gsap.to(".website-content", {
     opacity: 1,
-    delay: 4.5,
+    delay: 4.275,
     ease: "none",
     onComplete: () => {
       document.querySelector(".loading-indicator").remove();
@@ -131,7 +113,7 @@ function finishedLoading() {
 
   gsap.to(".website-content", {
     clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-    delay: 4.5,
+    delay: 4.325,
     duration: 2,
     ease: "elastic.out",
     onComplete: () => {
@@ -219,7 +201,7 @@ document
       width: "100px",
       scale: 1,
       delay: 0.2,
-      duration: 1.5,
+      duration: 0.75,
       ease: "elastic.out",
     });
 
