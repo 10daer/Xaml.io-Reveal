@@ -9,14 +9,13 @@ function startLoader() {
 
   function updateCount() {
     if (currentValue === 100) {
-      // finishedLoading();
+      finishedLoading();
       return;
     }
 
     currentValue += Math.floor(Math.random() * 10) + 1;
     if (currentValue > 100) currentValue = 100;
 
-    // count.textContent = currentValue;
     animateCounter(currentValue);
     loader.style.width = currentValue + "%";
 

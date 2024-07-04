@@ -29,7 +29,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
 }
 
 .loader {
@@ -61,7 +61,7 @@ body {
   border-radius: 12px;
   background-color: rgb(80, 80, 80);
   transform-origin: "center center";
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .loader-progress-bar {
@@ -139,10 +139,10 @@ h1 {
   }
 
   .loader-progress {
-    margin-bottom: 2px;
+    margin-bottom: 6px;
   }
 
   .loader-container {
-    gap: 4px;
+    gap: 12px;
   }
 }
