@@ -47,66 +47,80 @@ function finishedLoading() {
     ease: "power1.out",
   });
 
-  gsap.to(".loader-progress-bar", {
+  gsap.to(".loader-progress", {
     delay: 4,
-    backgroundColor: "rgba(80, 80, 80,)",
+    backgroundColor: "#201f1f",
     duration: 0.5,
     ease: "power1.out",
   });
 
-  // gsap.to(".loader-progress", {
-  //   height: "40vw",
-  //   width: "400vw",
-  //   scaleZ: 10,
-  //   delay: 4,
-  //   borderRadius: "16px",
-  //   duration: 2,
-  //   ease: "power1.out",
-  // });
+  gsap.to(".loader-progress-bar", {
+    delay: 4,
+    backgroundColor: "#201f1f",
+    duration: 0.5,
+    ease: "power1.out",
+  });
 
-  // gsap.to(".loading-logo", {
-  //   width: "400px",
-  //   delay: 4,
-  //   duration: 2,
-  //   ease: "power1.out",
-  // });
+  gsap.to(".loader-progress", {
+    height: "60vw",
+    scaleX: 4,
+    delay: 4.25,
+    borderRadius: "16px",
+    duration: 0.5,
+    ease: "power4.out",
+  });
 
-  // gsap.to(".loading-indicator", {
-  //   rotation: -90,
-  //   scale: 4,
-  //   x: -280,
-  //   transformOrigin: "center center",
-  //   delay: 4,
-  //   duration: 2,
-  //   ease: "power1.out",
-  // });
+  gsap.to(".loader-progress-bar", {
+    height: "60vw",
+    scaleX: 4,
+    delay: 4.25,
+    borderRadius: "16px",
+    duration: 0.5,
+    ease: "power4.out",
+  });
 
-  // gsap.to(".loading-indicator", {
-  //   opacity: 0,
-  //   duration: 0.5,
-  //   delay: 5,
-  //   ease: "power1.inOut",
-  // });
+  gsap.to(".loading-logo", {
+    width: "400px",
+    delay: 4.25,
+    duration: 0.5,
+    ease: "power4.out",
+  });
 
-  // gsap.to(".website-content", {
-  //   opacity: 1,
-  //   delay: 4.5,
-  //   duration: 0.5,
-  //   ease: "power1.inOut",
-  //   onComplete: () => {
-  //     document.querySelector(".loading-indicator").remove();
-  //   },
-  // });
+  gsap.to(".loading-indicator", {
+    rotation: -90,
+    scale: 4,
+    x: -280,
+    transformOrigin: "center center",
+    delay: 4.25,
+    duration: 0.5,
+    ease: "power4.out",
+  });
 
-  // gsap.to("h1", {
-  //   y: -80,
-  //   delay: 4.5,
-  //   duration: 1.5,
-  //   ease: "power4.inOut",
-  //   stagger: {
-  //     amount: 0.15,
-  //   },
-  // });
+  gsap.to(".loading-indicator", {
+    opacity: 0,
+    duration: 0.5,
+    delay: 4.25,
+    ease: "power4.inOut",
+  });
+
+  gsap.to(".website-content", {
+    opacity: 1,
+    delay: 4.25,
+    ease: "power1.inOut",
+    onComplete: () => {
+      document.querySelector(".loading-indicator").remove();
+    },
+  });
+
+  gsap.to("h1", {
+    y: -80,
+    delay: 4.125,
+    duration: 1,
+    ease: "power4.inOut",
+    stagger: {
+      amount: 0.15,
+    },
+  });
 }
 gsap.to(".loading-logo", {
   width: "110px",
