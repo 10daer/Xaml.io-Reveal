@@ -132,14 +132,17 @@ function finishedLoading() {
 }
 
 function animateCounter(newValue) {
+  console.log(newValue);
   newValue = Math.min(newValue, 100);
 
-  const count = document.querySelectorAll(".odometer");
-  const currentValue = count[0].textContent.padStart(3, "0");
+  const count = Array.from(document.querySelectorAll(".odometer"));
+  console.log(count);
+  const currentValue = count.map((span) => span.textContent).join("");
   const newValueString = String(newValue).padStart(3, "0");
-
+  console.log(currentValue, count);
   for (let i = 0; i < newValueString.length; i++) {
     if (newValueString[i] !== currentValue[i]) {
+      console.log(newValueString[i], currentValue[i]);
       gsap.to(count[i], {
         y: -4,
         opacity: 0.5,
@@ -196,6 +199,7 @@ document
     gsap.to(".loading-logo", {
       width: "100px",
       scale: 1,
+      delay: 0.2,
       duration: 1.5,
       ease: "elastic.out",
     });
