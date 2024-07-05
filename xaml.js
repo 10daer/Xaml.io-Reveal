@@ -104,17 +104,14 @@ function finishedLoading() {
 
   gsap.to(".website-content", {
     opacity: 1,
-    delay: 4.275,
+    delay: 4.25,
     ease: "none",
-    onComplete: () => {
-      document.querySelector(".loading-indicator").remove();
-    },
   });
 
   gsap.to(".website-content", {
     clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-    delay: 4.325,
-    duration: 2,
+    delay: 4.35,
+    duration: 4,
     ease: "elastic.out",
     onComplete: () => {
       document.querySelector(".loading-indicator").remove();
@@ -123,7 +120,7 @@ function finishedLoading() {
 
   gsap.to("h1", {
     y: -80,
-    delay: 4.625,
+    delay: 4.45,
     duration: 1,
     ease: "power4.inOut",
     stagger: {

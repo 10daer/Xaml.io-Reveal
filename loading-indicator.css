@@ -106,7 +106,7 @@ body {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   align-items: center;
   justify-content: center;
-  transition: all 0.1s cubic-bezier(0.32, 0, 0.67, 0);
+  /* transition: all 0.1s cubic-bezier(0.32, 0, 0.67, 0); */
 }
 
 .header {
