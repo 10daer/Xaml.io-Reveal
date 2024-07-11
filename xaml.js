@@ -111,11 +111,11 @@ function finishedLoading() {
     delay: 4.25,
     duration: 2,
     ease: "power4.out",
-    // onComplete: () => {
-    //   document.querySelector(".content").classList.remove("mask");
-    //   document.querySelector(".loading-indicator").remove();
-    //   document.querySelector("svg").remove();
-    // },
+    onComplete: () => {
+      document.querySelector(".content").classList.remove("mask");
+      document.querySelector(".loading-indicator").remove();
+      document.querySelector("svg").remove();
+    },
   });
 
   gsap.fromTo(
@@ -228,7 +228,6 @@ document
     gsap.to(".loader", {
       duration: 2.5,
       delay: 0,
-      // onComplete: () => startLoader(),
-      onComplete: () => finishedLoading(),
+      onComplete: () => startLoader(),
     });
   });
