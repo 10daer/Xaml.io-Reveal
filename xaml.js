@@ -30,8 +30,8 @@ function finishedLoading() {
   const progressBar = document.querySelector(".loader-reveal");
   const loaderProgress = document.querySelector(".loader-progress");
   const loaderRect = loaderProgress.getBoundingClientRect();
-  const xValue = window.innerWidth < 450 ? "-50vw" : "-110vw";
-  const yValue = window.innerWidth < 450 ? "-30vh" : "45vh";
+  const xValue = window.innerWidth < 450 ? "-170vw" : "-140vw";
+  const yValue = window.innerWidth < 450 ? "-100vh" : "-60vh";
 
   gsap.to(".counter-container", {
     color: "white",
@@ -55,14 +55,14 @@ function finishedLoading() {
   gsap.to(".loader-progress", {
     delay: 4.25,
     display: "none",
-    duration: 0,
+    duration: 1,
     ease: "power1.out",
   });
 
   gsap.to("svg", {
     display: "block",
     delay: 4.25,
-    duration: 2,
+    duration: 1,
     ease: "power4.out",
   });
 
@@ -76,38 +76,38 @@ function finishedLoading() {
     y: loaderRect.top,
   });
 
+  gsap.to(".loading-logo", {
+    opacity: 0,
+    y: -22,
+    delay: 4.25,
+    duration: 2,
+    ease: "power4.out",
+  });
+
   gsap.to(progressBar, {
     delay: 4.25,
     duration: 2,
+    scale: 4,
     attr: {
       width:
         window.innerWidth < 450
           ? 2.5 * window.innerWidth
-          : 6 * window.innerWidth,
+          : 2 * window.innerWidth,
       height:
         window.innerWidth < 450
           ? 1.5 * window.innerHeight
-          : 4 * window.innerHeight,
+          : 2 * window.innerHeight,
+      rx: "40",
+      ry: "40",
     },
-    ease: "power4.out",
-    rotate: window.innerWidth < 450 ? -5 : -45,
+    ease: "power1.out",
+    rotate: window.innerWidth < 450 ? -15 : -45,
     transformOrigin: "center center",
     x: xValue,
     y: yValue,
   });
 
-  gsap.to(".loading-logo", {
-    width: "200px",
-    y: "-40vh",
-    delay: 4.25,
-    duration: 2,
-    ease: "power4.out",
-  });
-
   gsap.to(".loading-indicator", {
-    rotation: window.innerWidth < 450 ? 0 : -45,
-    scale: 4,
-    transformOrigin: "center center",
     delay: 4.25,
     duration: 2,
     ease: "power4.out",
@@ -124,7 +124,7 @@ function finishedLoading() {
     {
       y: 0,
       delay: 4.45,
-      duration: 1,
+      duration: 2,
       ease: "power4.inOut",
       stagger: {
         amount: 0.3,
@@ -229,5 +229,6 @@ document
       duration: 2.5,
       delay: 0,
       onComplete: () => startLoader(),
+      // onComplete: () => finishedLoading(),
     });
   });
