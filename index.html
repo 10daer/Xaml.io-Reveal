@@ -8,6 +8,24 @@
     <title>XAML.io</title>
   </head>
   <body>
+    <svg width="200px" height="0">
+      <defs>
+        <filter id="displacementFilter" x="0" y="0">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
+        </filter>
+        <mask id="rectMask">
+          <rect
+            width="200"
+            height="5"
+            rx="2.5"
+            ry="2.5"
+            fill="white"
+            class="loader-reveal"
+            transform="translate(100 100)"
+          />
+        </mask>
+      </defs>
+    </svg>
     <div class="loading-indicator">
       <div class="loader-container">
         <div class="loader">
@@ -18,10 +36,12 @@
             alt="Xaml.io logo"
             srcset=""
           />
+
           <div class="loader-progress">
             <div class="loader-progress-bar"></div>
           </div>
         </div>
+
         <div class="counter-container">
           <span class="odometer" id="odometer-0">0</span>
           <span class="odometer" id="odometer-1">0</span>
@@ -29,14 +49,14 @@
         </div>
       </div>
     </div>
-    <div class="website-content">
-      <div class="header">
-        <div class="h1">
-          <h1>Website</h1>
-          <h1>Content</h1>
-        </div>
-      </div>
+
+    <div class="content mask">
+      <h1 class="h1">
+        <span>Website</span>
+        <span>Content</span>
+      </h1>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="xaml.js"></script>
   </body>

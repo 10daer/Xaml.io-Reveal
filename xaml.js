@@ -27,6 +27,12 @@ function startLoader() {
 }
 
 function finishedLoading() {
+  const progressBar = document.querySelector(".loader-reveal");
+  const loaderProgress = document.querySelector(".loader-progress");
+  const loaderRect = loaderProgress.getBoundingClientRect();
+  const xValue = window.innerWidth < 450 ? "-50vw" : "-110vw";
+  const yValue = window.innerWidth < 450 ? "-30vh" : "45vh";
+
   gsap.to(".counter-container", {
     color: "white",
     duration: 1,
@@ -47,86 +53,84 @@ function finishedLoading() {
   });
 
   gsap.to(".loader-progress", {
-    delay: 4,
-    backgroundColor: "#201f1f",
-    duration: 0.5,
-    ease: "power1.out",
-  });
-
-  gsap.to(".loader-progress-bar", {
-    delay: 4,
-    backgroundColor: "#201f1f",
-    duration: 0.5,
-    ease: "power1.out",
-  });
-
-  gsap.to(".loader-progress", {
-    height: "60vw",
-    scaleX: 4,
     delay: 4.25,
-    borderRadius: "16px",
+    display: "none",
+    duration: 0,
+    ease: "power1.out",
+  });
+
+  gsap.to("svg", {
+    display: "block",
+    delay: 4.25,
     duration: 2,
     ease: "power4.out",
   });
 
-  gsap.to(".loader-progress-bar", {
-    height: "60vw",
-    scaleX: 4,
+  gsap.set(progressBar, {
     delay: 4.25,
-    borderRadius: "16px",
-    duration: 2,
+    duration: 1,
     ease: "power4.out",
+    attr: { width: 200, height: 5 },
+    transformOrigin: "center center",
+    x: loaderRect.left,
+    y: loaderRect.top,
+  });
+
+  gsap.to(progressBar, {
+    delay: 4.25,
+    duration: 2,
+    attr: {
+      width:
+        window.innerWidth < 450
+          ? 2.5 * window.innerWidth
+          : 6 * window.innerWidth,
+      height:
+        window.innerWidth < 450
+          ? 1.5 * window.innerHeight
+          : 4 * window.innerHeight,
+    },
+    ease: "power4.out",
+    rotate: window.innerWidth < 450 ? -5 : -45,
+    transformOrigin: "center center",
+    x: xValue,
+    y: yValue,
   });
 
   gsap.to(".loading-logo", {
-    width: "400px",
+    width: "200px",
+    y: "-40vh",
     delay: 4.25,
     duration: 2,
     ease: "power4.out",
   });
 
   gsap.to(".loading-indicator", {
-    rotation: -90,
+    rotation: window.innerWidth < 450 ? 0 : -45,
     scale: 4,
-    x: -280,
     transformOrigin: "center center",
     delay: 4.25,
     duration: 2,
     ease: "power4.out",
+    // onComplete: () => {
+    //   document.querySelector(".content").classList.remove("mask");
+    //   document.querySelector(".loading-indicator").remove();
+    //   document.querySelector("svg").remove();
+    // },
   });
 
-  gsap.to(".loading-indicator", {
-    opacity: 0,
-    duration: 2,
-    delay: 4.25,
-    ease: "power4.inOut",
-  });
-
-  gsap.to(".website-content", {
-    opacity: 1,
-    delay: 4.25,
-    ease: "none",
-  });
-
-  gsap.to(".website-content", {
-    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-    delay: 4.35,
-    duration: 4,
-    ease: "elastic.out",
-    onComplete: () => {
-      document.querySelector(".loading-indicator").remove();
-    },
-  });
-
-  gsap.to("h1", {
-    y: -80,
-    delay: 4.45,
-    duration: 1,
-    ease: "power4.inOut",
-    stagger: {
-      amount: 0.3,
-    },
-  });
+  gsap.fromTo(
+    "h1 span",
+    { y: 80 },
+    {
+      y: 0,
+      delay: 4.45,
+      duration: 1,
+      ease: "power4.inOut",
+      stagger: {
+        amount: 0.3,
+      },
+    }
+  );
 }
 
 function animateCounter(newValue) {
@@ -134,13 +138,10 @@ function animateCounter(newValue) {
   newValue = Math.min(newValue, 100);
 
   const count = Array.from(document.querySelectorAll(".odometer"));
-  console.log(count);
   const currentValue = count.map((span) => span.textContent).join("");
   const newValueString = String(newValue).padStart(3, "0");
-  console.log(currentValue, count);
   for (let i = 0; i < newValueString.length; i++) {
     if (newValueString[i] !== currentValue[i]) {
-      console.log(newValueString[i], currentValue[i]);
       gsap.to(count[i], {
         y: -4,
         opacity: 0.5,
@@ -227,6 +228,7 @@ document
     gsap.to(".loader", {
       duration: 2.5,
       delay: 0,
-      onComplete: () => startLoader(),
+      // onComplete: () => startLoader(),
+      onComplete: () => finishedLoading(),
     });
   });
