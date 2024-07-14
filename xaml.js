@@ -30,7 +30,7 @@ function finishedLoading() {
   const progressBar = document.querySelector(".loader-reveal");
   const loaderProgress = document.querySelector(".loader-progress");
   const loaderRect = loaderProgress.getBoundingClientRect();
-  const xValue = window.innerWidth < 450 ? "-210vw" : "-140vw";
+  const xValue = window.innerWidth < 450 ? "-250vw" : "-150vw";
   const yValue = window.innerWidth < 450 ? "-100vh" : "-60vh";
 
   gsap.to(".counter-container", {
@@ -55,7 +55,7 @@ function finishedLoading() {
   gsap.to(".loader-progress", {
     delay: 4.25,
     display: "none",
-    duration: 1,
+    duration: 0,
     ease: "power1.out",
   });
 
@@ -217,17 +217,11 @@ document
     });
 
     gsap.to(".counter-container", {
-      opacity: 1,
-      duration: 0.25,
-      ease: "none",
-      delay: 1.25,
-    });
-
-    gsap.to(".counter-container > .odometer", {
+      ease: "power1.out",
+      delay: 1.5,
       transform: "translateY(0)",
-      duration: 0.25,
-      ease: "none",
-      delay: 1.25,
+      opacity: 1,
+      duration: 0.5,
     });
 
     gsap.to(".loader", {

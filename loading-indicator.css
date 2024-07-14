@@ -90,11 +90,8 @@ svg {
   line-height: 1;
   gap: 1px;
   opacity: 0;
+  transform: translateY(8px);
   color: rgb(132, 129, 129);
-}
-
-.counter-container > .odometer {
-  transform: translateY(4px);
 }
 
 .content {
