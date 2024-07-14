@@ -30,7 +30,7 @@ function finishedLoading() {
   const progressBar = document.querySelector(".loader-reveal");
   const loaderProgress = document.querySelector(".loader-progress");
   const loaderRect = loaderProgress.getBoundingClientRect();
-  const xValue = window.innerWidth < 450 ? "-170vw" : "-140vw";
+  const xValue = window.innerWidth < 450 ? "-210vw" : "-140vw";
   const yValue = window.innerWidth < 450 ? "-100vh" : "-60vh";
 
   gsap.to(".counter-container", {
@@ -77,19 +77,20 @@ function finishedLoading() {
   });
 
   gsap.to(".loading-logo", {
-    width: 700,
+    width: 600,
     scale: 2,
     y: -300,
     x: -30,
-    rotate: -12.5,
+    rotate: -7.5,
+    transformOrigin: "center center",
     delay: 4.25,
-    duration: 2,
+    duration: 1,
     ease: "power4.out",
   });
 
   gsap.to(progressBar, {
     delay: 4.25,
-    duration: 5,
+    duration: 6,
     scale: 4,
     attr: {
       width:
@@ -103,7 +104,7 @@ function finishedLoading() {
       rx: "40",
       ry: "40",
     },
-    ease: "power2.out",
+    ease: "power4.out",
     rotate: window.innerWidth < 450 ? -30 : -45,
     transformOrigin: "center center",
     x: xValue,
@@ -198,6 +199,7 @@ function animateCounter(newValue) {
 document
   .querySelector(".loading-logo")
   .addEventListener("load", function (event) {
+    console.log("load");
     gsap.to(".loading-logo", {
       width: "100px",
       scale: 1,
@@ -231,7 +233,7 @@ document
     gsap.to(".loader", {
       duration: 2.5,
       delay: 0,
-      // onComplete: () => startLoader(),
-      onComplete: () => finishedLoading(),
+      onComplete: () => startLoader(),
+      // onComplete: () => finishedLoading(),
     });
   });
