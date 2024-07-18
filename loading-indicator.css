@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* border: 1px solid red; */
 }
 
 body {
@@ -89,6 +88,9 @@ body {
 }
 
 .content {
+  position: absolute;
+  margin: 0;
+  z-index: 1;
   display: grid;
   place-content: center;
   width: 100vw;
