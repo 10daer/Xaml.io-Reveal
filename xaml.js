@@ -217,7 +217,7 @@ document
     gsap.to(".loader", {
       duration: 2.5,
       delay: 0,
-      // onComplete: () => startLoader(),
-      onComplete: () => finishedLoading(),
+      onComplete: () => startLoader(),
+      // onComplete: () => finishedLoading(),
     });
   });
