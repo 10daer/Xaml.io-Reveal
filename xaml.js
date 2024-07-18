@@ -59,18 +59,12 @@ function finishedLoading() {
     ease: "power1.out",
   });
 
-  gsap.to("svg", {
-    display: "block",
-    delay: 4.25,
-    duration: 1,
-    ease: "power4.out",
-  });
-
   gsap.set(progressBar, {
     delay: 4.25,
     duration: 1,
     ease: "power4.out",
-    attr: { width: 200, height: 5 },
+    width: 200,
+    height: 5,
     transformOrigin: "center center",
     x: loaderRect.left,
     y: loaderRect.top,
@@ -92,18 +86,14 @@ function finishedLoading() {
     delay: 4.25,
     duration: 6,
     scale: 4,
-    attr: {
-      width:
-        window.innerWidth < 450
-          ? 2.5 * window.innerWidth
-          : 2 * window.innerWidth,
-      height:
-        window.innerWidth < 450
-          ? 1.5 * window.innerHeight
-          : 2 * window.innerHeight,
-      rx: "40",
-      ry: "40",
-    },
+    width:
+      window.innerWidth < 450 ? 2.5 * window.innerWidth : 2 * window.innerWidth,
+    height:
+      window.innerWidth < 450
+        ? 1.5 * window.innerHeight
+        : 2 * window.innerHeight,
+    rx: 40,
+    ry: 40,
     ease: "power4.out",
     rotate: window.innerWidth < 450 ? -30 : -45,
     transformOrigin: "center center",
@@ -227,7 +217,7 @@ document
     gsap.to(".loader", {
       duration: 2.5,
       delay: 0,
-      onComplete: () => startLoader(),
-      // onComplete: () => finishedLoading(),
+      // onComplete: () => startLoader(),
+      onComplete: () => finishedLoading(),
     });
   });

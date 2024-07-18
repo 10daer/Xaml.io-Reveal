@@ -11,12 +11,6 @@ body {
   overflow: hidden;
 }
 
-svg {
-  width: 0px;
-  height: 0px;
-  display: none;
-}
-
 .loading-indicator {
   background-color: #201f1f;
   position: fixed;
