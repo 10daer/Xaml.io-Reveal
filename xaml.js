@@ -72,18 +72,18 @@ function finishedLoading() {
   gsap.to(".loading-logo", {
     width: 600,
     scale: 2,
-    y: -300,
-    x: -30,
+    y: -400,
+    x: -60,
     rotate: -7.5,
     transformOrigin: "center center",
     delay: 4.25,
-    duration: 1,
+    duration: 1.75,
     ease: "power4.out",
   });
 
   gsap.to(progressBar, {
     delay: 4.25,
-    duration: 6,
+    duration: 2,
     scale: 4,
     attr: {
       width:
@@ -97,17 +97,11 @@ function finishedLoading() {
       rx: 40,
       ry: 40,
     },
-    ease: "power4.out",
+    ease: "power1.out",
     rotate: window.innerWidth < 450 ? -30 : -45,
     transformOrigin: "center center",
     x: xValue,
     y: yValue,
-  });
-
-  gsap.to(".loading-indicator", {
-    delay: 4.25,
-    duration: 4,
-    ease: "power4.out",
     onComplete: () => {
       document.querySelector(".content").classList.remove("mask");
       document.querySelector(".loading-indicator").remove();
