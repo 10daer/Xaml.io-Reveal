@@ -30,7 +30,7 @@ function finishedLoading() {
   const progressBar = document.querySelector(".loader-reveal");
   const loaderProgress = document.querySelector(".loader-progress");
   const loaderRect = loaderProgress.getBoundingClientRect();
-  const xValue = window.innerWidth < 450 ? "-250vw" : "-150vw";
+  const xValue = window.innerWidth < 450 ? "-150vw" : "-125vw";
   const yValue = window.innerWidth < 450 ? "-100vh" : "-60vh";
 
   gsap.to(".counter-container", {
@@ -63,8 +63,7 @@ function finishedLoading() {
     delay: 4.25,
     duration: 1,
     ease: "power4.out",
-    width: 200,
-    height: 5,
+    attr: { width: 200, height: 5 },
     transformOrigin: "center center",
     x: loaderRect.left,
     y: loaderRect.top,
@@ -86,14 +85,18 @@ function finishedLoading() {
     delay: 4.25,
     duration: 6,
     scale: 4,
-    width:
-      window.innerWidth < 450 ? 2.5 * window.innerWidth : 2 * window.innerWidth,
-    height:
-      window.innerWidth < 450
-        ? 1.5 * window.innerHeight
-        : 2 * window.innerHeight,
-    rx: 40,
-    ry: 40,
+    attr: {
+      width:
+        window.innerWidth < 450
+          ? 2.5 * window.innerWidth
+          : 2 * window.innerWidth,
+      height:
+        window.innerWidth < 450
+          ? 1.5 * window.innerHeight
+          : 2 * window.innerHeight,
+      rx: 40,
+      ry: 40,
+    },
     ease: "power4.out",
     rotate: window.innerWidth < 450 ? -30 : -45,
     transformOrigin: "center center",
