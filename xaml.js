@@ -28,6 +28,7 @@ function startLoader() {
 
 function finishedLoading() {
   const isMobile = window.innerWidth < 450;
+  const isTab = window.innerWidth > 450 && window.innerWidth < 1000;
 
   gsap.to(".counter-container", {
     color: "white",
@@ -81,7 +82,7 @@ function finishedLoading() {
 
   gsap.to(".loading-background", {
     delay: 4.25,
-    duration: isMobile ? 1 : 2,
+    duration: isMobile || isTab ? 1 : 2,
     width: "200vw",
     borderRightWidth: "0vw",
     borderLeftWidth: "0vw",
@@ -99,8 +100,7 @@ function finishedLoading() {
     transformOrigin: "center center",
     ease: "power1.out",
     onComplete: () => {
-      document.querySelector(".loading-background").remove();
-      document.querySelector(".loading-indicator").remove();
+      document.querySelector(".load").remove();
     },
   });
 
