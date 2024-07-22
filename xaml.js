@@ -27,11 +27,7 @@ function startLoader() {
 }
 
 function finishedLoading() {
-  const progressBar = document.querySelector(".loader-reveal");
-  const loaderProgress = document.querySelector(".loader-progress");
-  const loaderRect = loaderProgress.getBoundingClientRect();
-  const xValue = window.innerWidth < 450 ? "-150vw" : "-125vw";
-  const yValue = window.innerWidth < 450 ? "-100vh" : "-60vh";
+  const isMobile = window.innerWidth < 450;
 
   gsap.to(".counter-container", {
     color: "white",
@@ -59,53 +55,52 @@ function finishedLoading() {
     ease: "power1.out",
   });
 
-  gsap.set(progressBar, {
+  gsap.set(".loading-background", {
     delay: 4.25,
     duration: 1,
-    ease: "power4.out",
-    attr: { width: 200, height: 5 },
+    borderTopWidth: isMobile ? "calc(100vh + 20px)" : "calc(200vh + 20px)",
+    borderRightWidth: "calc(100vw - 90px)",
+    borderBottomWidth: isMobile ? "calc(100vh - 25px)" : "calc(200vh - 25px)",
+    borderLeftWidth: "calc(100vw - 110px)",
+    width: "200px",
+    height: "5px",
     transformOrigin: "center center",
-    x: loaderRect.left,
-    y: loaderRect.top,
   });
 
   gsap.to(".loading-logo", {
     width: 600,
     scale: 2,
-    y: -400,
+    y: "-75vh",
     x: -60,
     rotate: -7.5,
     transformOrigin: "center center",
     delay: 4.25,
-    duration: 1.75,
+    duration: 2,
     ease: "power4.out",
   });
 
-  gsap.to(progressBar, {
+  gsap.to(".loading-background", {
     delay: 4.25,
-    duration: 2,
-    scale: 4,
-    attr: {
-      width:
-        window.innerWidth < 450
-          ? 2.5 * window.innerWidth
-          : 2 * window.innerWidth,
-      height:
-        window.innerWidth < 450
-          ? 1.5 * window.innerHeight
-          : 2 * window.innerHeight,
-      rx: 40,
-      ry: 40,
-    },
-    ease: "power1.out",
-    rotate: window.innerWidth < 450 ? -30 : -45,
+    duration: isMobile ? 1 : 2,
+    width: "200vw",
+    borderRightWidth: "0vw",
+    borderLeftWidth: "0vw",
     transformOrigin: "center center",
-    x: xValue,
-    y: yValue,
+    ease: "power1.out",
+  });
+
+  gsap.to(".loading-background", {
+    delay: 4.25,
+    duration: isMobile ? 2 : 4,
+    borderTopWidth: "0vh",
+    borderBottomWidth: "0vh",
+    height: isMobile ? "200vh" : "400vh",
+    rotate: isMobile ? -30 : -45,
+    transformOrigin: "center center",
+    ease: "power1.out",
     onComplete: () => {
-      document.querySelector(".content").classList.remove("mask");
+      document.querySelector(".loading-background").remove();
       document.querySelector(".loading-indicator").remove();
-      document.querySelector("svg").remove();
     },
   });
 

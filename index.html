@@ -8,27 +8,7 @@
     <title>XAML.io</title>
   </head>
   <body>
-    <svg
-      width="0"
-      height="0"
-      viewBox=" 0 0 100 100"
-      version="1.1"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
-    >
-      <defs>
-        <mask id="rectMask">
-          <rect
-            width="0"
-            height="0"
-            rx="0"
-            ry="0"
-            fill="white"
-            class="loader-reveal"
-          />
-        </mask>
-      </defs>
-    </svg>
+    <div class="loading-background"></div>
     <div class="loading-indicator">
       <div class="loader-container">
         <div class="loader">
@@ -38,12 +18,10 @@
             src="./white.webp"
             alt="Xaml.io logo"
           />
-
           <div class="loader-progress">
             <div class="loader-progress-bar"></div>
           </div>
         </div>
-
         <div class="counter-container">
           <span class="odometer" id="odometer-0">0</span>
           <span class="odometer" id="odometer-1">0</span>
@@ -52,11 +30,13 @@
       </div>
     </div>
 
-    <div class="content mask">
-      <h1 class="h1">
-        <span>Website</span>
-        <span>Content</span>
-      </h1>
+    <div class="website-content">
+      <div class="header">
+        <div class="h1">
+          <h1>Website</h1>
+          <h1>Content</h1>
+        </div>
+      </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>

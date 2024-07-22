@@ -1,17 +1,24 @@
-* {
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
 }
 
+.loading-background {
+  position: fixed;
+  border-color: #201f1f;
+  border-style: solid;
+  border-width: 100vh 100vw;
+  top: -50%;
+  left: -50%;
+  z-index: 99;
+  width: 0%;
+  height: 0%;
+}
+
 .loading-indicator {
-  background-color: #201f1f;
   position: fixed;
   top: 0;
   left: 0;
@@ -21,6 +28,7 @@ body {
   justify-content: center;
   align-items: center;
   pointer-events: none;
+  z-index: 999;
 }
 
 .loader-container {
@@ -87,22 +95,12 @@ body {
   color: rgb(132, 129, 129);
 }
 
-.content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 0;
-  z-index: 1;
+.website-content {
   display: grid;
   place-content: center;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: #fff;
-}
-
-.mask {
-  mask: url(#rectMask);
-  -webkit-mask: url(#rectMask);
 }
 
 h1 {
@@ -120,7 +118,21 @@ h1 span {
   font-size: clamp(20px, 8vw, 50px);
 }
 
+@media (min-width: 450px) and (max-width: 1000px) {
+  .loading-background {
+    border-width: 150vh 100vw;
+    top: -150%;
+    left: -50%;
+  }
+}
+
 @media (min-width: 1025px) {
+  .loading-background {
+    border-width: 200vh 100vw;
+    top: -150%;
+    left: -50%;
+  }
+
   .counter-container {
     min-width: 30px;
     font-size: clamp(0.8rem, 1.15vw, 1.6rem);
