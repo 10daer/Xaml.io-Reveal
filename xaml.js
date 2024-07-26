@@ -210,6 +210,5 @@ document
       duration: 2.5,
       delay: 0,
       onComplete: () => startLoader(),
-      // onComplete: () => finishedLoading(),
     });
   });
